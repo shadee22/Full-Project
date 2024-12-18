@@ -1,6 +1,10 @@
+
 # Import necessary libraries
-import streamlit as st
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from langchain_community.utilities import SQLDatabase
+import streamlit as st
 from langchain_community.agent_toolkits import create_sql_agent
 from langchain_groq import ChatGroq
 from langchain.agents import AgentType
